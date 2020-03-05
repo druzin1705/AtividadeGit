@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+  <script src="components/loader.js"></script>
+  <script src="lib/onsenui/js/onsenui.min.js"></script>
+  <script src="lib/calc.js"></script>
+
+  <link rel="stylesheet" href="components/loader.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script>
+    // Page init event
+    document.addEventListener('init', function(event) {
+      var page = event.target;
+
+      if (page.matches('#first-page')) {
+
+        page.querySelector('#push-button').onclick = function() {
+          document.querySelector('#navigator').pushPage('page2.html');
+        };
+
+      } else if (page.matches('#second-page')) {
+
+        page.querySelector('#pop-button').onclick = function() {
+          document.querySelector('#navigator').popPage();
+        };
+
+      }
+    });
+
+    if (ons.platform.isIPhoneX()) {
+      document.documentElement.setAttribute('onsflag-iphonex-portrait', '');
+      document.documentElement.setAttribute('onsflag-iphonex-landscape', '');
+    }
+  </script>
+</head>
+<body>
+  <ons-navigator id="navigator" page="page1.html"></ons-navigator>
+
+  <ons-template id="page1.html">
+    <ons-page id="first-page">
+      <ons-toolbar>
+        <div class="center">Inicio</div>
+      </ons-toolbar>
+
+      <div class="content" style="text-align: center">
+        <p>Click no botão abaixo para ir a calculadora.</p>
+        <ons-button id="push-button">calculadora</ons-button>
+      </div>
+    </ons-page>
+  </ons-template>
+
+  <ons-template id="page2.html">
+    <ons-page id="second-page">
+      <ons-toolbar>
+        <div class="left"><ons-back-button>Page 1</ons-back-button></div>
+        <div class="center">Calculadora</div>
+      </ons-toolbar>
+
+         <p>Esta é a calculadora.</p>
+
+<div class="container">
+	<div class="row">
+		<div class="co2-sm">
+			<div class="form-group">
+				<label for="v1">Valor 1</label>				
+				<input type="number" class="form-control" id="v1">
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="co2-sm">
+			<div class="form-group">
+				<label for="v2">Valor 2</label>				
+				<input type="number" class="form-control" id="v2">
+			</div>
+		</div>
+	</div>
+
+  <div class="container">
+	<div class="row">
+		<div class="co2-sm">
+			<div class="form-group">
+				<label for="v3">Valor 3</label>				
+				<input type="number" class="form-control" id="v3">
+			</div>
+		</div>
+	</div>
+
+  	<div class="row">
+
+
+
+
+		<div class="co2-sm">
+			<div class="form-group"
+				<label for="v4">valor 4 : x</label>	
+        				<input type="number" class="form-control" id="res" readonly>
+			</div>
+		</div>
+	</div>
+  <div class="row">
+		<div class="col-3">
+			<button  class="btn btn-primary btn-block" id="mais"> calcular </button>
+
+		</div>
+  </div>
+  
+
+<div class="content" style="text-align: center">
+       
+        <ons-button id="pop-button">retorno</ons-button>
+  
+
+      </div>
+    </ons-page>
+  </ons-template>
+</body>
+</html>
